@@ -26,3 +26,8 @@ end
 puts Car.all_cars
 Car.clear_cars
 puts Car.all_cars
+
+cd to the lecture directory (dc-web-060120)
+git pull 
+git commit blah blah OR git stash
+

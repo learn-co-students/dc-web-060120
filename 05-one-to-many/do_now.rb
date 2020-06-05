@@ -9,6 +9,9 @@
 class Puppy
 
     attr_reader :name, :cuteness
+    # BEST PRACTICE:  Do not use @variable anywhere except in your getter and setter methods
+    # every other method should call on getters and setters instead of accessing the 
+    # instance variable directly
 
     def initialize(name)
         @name = name
@@ -16,21 +19,17 @@ class Puppy
     end
 
     def play_in_the_mud
-        @cuteness -= 5
-        if @cuteness > 10
-            @cuteness = 10
-        elsif @cuteness < 1
-            @cuteness = 1
-        end
+        self.cuteness=(self.cuteness - 5)
+        return "Doggies love to get muddy"
     end
 
     def take_a_bath
-        @cuteness += 3 
-        if @cuteness > 10
-            @cuteness = 10
-        elsif @cuteness < 1
-            @cuteness = 1
-        end
+        self.cuteness = self.cuteness + 3 
+    end
+
+    def cuteness=(new_cuteness)
+        @cuteness = new_cuteness.clamp(1, 10)
+
     end    
 end
 
@@ -40,3 +39,6 @@ fido.take_a_bath
 puts fido.cuteness == 8 # test that take a bath raises cuteness by 3
 fido.take_a_bath
 puts fido.cuteness == 10 # test that cuteness cannot exceed 10
+
+puts fido.play_in_the_mud
+puts fido.cuteness
