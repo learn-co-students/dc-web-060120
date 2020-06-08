@@ -14,4 +14,10 @@ class Instructor
         @@all 
     end
 
+    def students
+        # return array of all student objects this teacher teaches
+    end
+
+
+
 end
