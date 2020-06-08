@@ -26,5 +26,9 @@ class Student
         end
     end
 
+    def add_instructor(instructor)
+        InstructorStudent.new(self, instructor)
+    end
+
 end
 

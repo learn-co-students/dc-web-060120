@@ -52,5 +52,14 @@ puts pat.teacher_names.include?("Paul Nicholsen")
 puts jerry.teacher_names.include?("Paul Nicholsen")
 puts !jerry.teacher_names.include?("Ann Duong")
 
+puts "Teacher knows their students"
+puts paul.students.include?(pat)
+
+puts "Student can add a teacher"
+puts !jerry.teachers.include?(ann)
+jerry.add_instructor(ann)
+puts jerry.teachers.include?(ann)
+
+
 
 
