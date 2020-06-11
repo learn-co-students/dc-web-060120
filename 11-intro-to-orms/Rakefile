@@ -10,5 +10,16 @@ task :hi do
     puts "Hi everybody!"
 end
 
+desc "Set up database"
+task :set_up_db do
 
+    author_sql = <<-SQL
+        CREATE TABLE IF NOT EXISTS authors(
+            id integer PRIMARY KEY,
+            name TEXT)
+    SQL
+
+    DB.execute(author_sql)
+
+end
 
