@@ -3,3 +3,21 @@ development:
   database: db/my_database.db 
   pool: 5
   timeout: 5000
+
+
+# test:
+#   adapter: sqlite3
+#   database: db/testing.db 
+#   pool: 5
+#   timeout: 5000
+
+
+# production:
+#   adapter: sqlite3
+#   database: db/production.db 
+#   pool: 5
+#   timeout: 5000
+
+
+  # YAML: Yet Another Markup Language; YAML: Another Markup Language
+
