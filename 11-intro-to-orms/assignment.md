@@ -1,5 +1,6 @@
 1.  Write the SQL to create tables for Books (id, title, author_id) and Authors (id, name)
 
+<!-- HEREDOC -->
 <<-SQL
     CREATE TABLE IF NOT EXISTS books(
         id integer PRIMARY KEY,
