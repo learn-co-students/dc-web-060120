@@ -2,7 +2,9 @@
 
 ### Define
 
-* GET requests
+* GET requests vs POST request
+    GET - I want some data from you
+    POST - I have some data I'm giving you (e.g., Internet forms)
 * Server responses
 * Developer console
 * APIs
