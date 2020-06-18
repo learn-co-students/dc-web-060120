@@ -4,23 +4,29 @@ describe "PalindromeChecker" do
 
     let (:checker) {PalindromeChecker.new}
 
-    it "returns true when input is 'dad'" do
-        expect(checker.is_palindrome?('dad')).to be(true)
+    it "returns true when input is 'racecar'" do 
+        expect(checker.is_palindrome?('racecar')).to be(true)
     end
 
-    it "ignores spaces" do
-        expect(checker.is_palindrome?('taco cat')).to be(true)
+    it "returns false when input is 'banana'" do 
+        expect(checker.is_palindrome?('banana')).to be(false)
     end
 
-    it "raises ArgumentError if input is not a string" do
-        expect{ checker.is_palindrome?(7) }.to raise_error ArgumentError
+    it "is not case sensitive" do 
+        expect(checker.is_palindrome?('Racecar')).to be(true)
     end
 
-    it "ignores capitalization" do 
-        expect(checker.is_palindrome?("Abba")).to be(true)
+    it "ignores spaces" do 
+        expect(checker.is_palindrome?("taco cat")).to be(true)
     end
 
-    it "ignores punctuation" do
-        expect(checker.is_palindrome?("Sara's")).to be(true)
+    it "raises ArgumentError when input is not a String" do 
+        expect{checker.is_palindrome?(["things", 2])}.to raise_error ArgumentError
+        expect{checker.is_palindrome?(false)}.to raise_error ArgumentError
+        expect{checker.is_palindrome?(56)}.to raise_error ArgumentError
+
     end
+
+
+
 end
