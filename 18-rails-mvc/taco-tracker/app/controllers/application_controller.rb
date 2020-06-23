@@ -20,7 +20,6 @@ class ApplicationController < ActionController::Base
     end
 
     def show
-        byebug
         id = params[:id]
         @taco = Taco.find(id)
         render :show
