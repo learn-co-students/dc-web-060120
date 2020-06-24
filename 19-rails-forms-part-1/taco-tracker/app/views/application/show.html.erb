@@ -1,0 +1,8 @@
+<h1>Detail Page</h1>
+
+<div>Name: <%= @taco.display_name %></div>
+<div>Price: <%= number_to_currency(@taco.price) %></div>
+<div>Vegetarian?:  <%= @taco.vegetarian %></div>
+
+
+<%= link_to "All Tacos", tacos_path %>
