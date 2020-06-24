@@ -14,14 +14,5 @@ class ApplicationController < ActionController::Base
         render :hello
     end
 
-    def index
-        @tacos = Taco.all
-        # render :index
-    end
 
-    def show
-        id = params[:id]
-        @taco = Taco.find(id)
-        render :show
-    end
 end

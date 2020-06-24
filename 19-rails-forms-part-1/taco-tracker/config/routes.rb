@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get "/hello/:name", to: "application#hello", as: "hello"
   # ^.             ^.               ^                   ^
   # HTTP Verb.    PATH            controller#method   helper_prefix
-  get "/tacos", to: "application#index"
-  get "/tacos/:id", to: "application#show", as: "taco"
-  # resources :tacos, only: [:index, :show]
-
+  
+  # get "/tacos", to: "tacos#index"
+  # get "/tacos/:id", to: "tacos#show", as: "taco"
+  resources :tacos, only: [:index, :show, :new, :create]
+  # get "/hi_dave", to: "tacos#index"
 end
