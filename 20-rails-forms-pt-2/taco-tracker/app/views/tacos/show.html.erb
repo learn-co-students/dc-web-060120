@@ -1,0 +1,16 @@
+<h1>Detail Page</h1>
+
+<div>Name: <%= @taco.display_name %></div>
+<div>Price: <%= number_to_currency(@taco.price) %></div>
+<div>Vegetarian:  <%= @taco.vegetarian %></div>
+
+
+
+<div>
+<%= link_to "All Tacos", tacos_path %>
+</div>
+
+<div>
+<%= link_to "Edit this taco", edit_taco_path(@taco.id) %>
+<%= link_to "Delete this taco", taco_path(@taco.id), method: "DELETE" %>
+</div>
