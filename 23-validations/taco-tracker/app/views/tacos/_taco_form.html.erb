@@ -1,12 +1,22 @@
+<% if @taco.errors %>
+    <ul>
+        <% @taco.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+        <% end %>
+    </ul>
+<% end %>
+
 <%= form_for @taco do |f| %>
-    <div>
     <%= f.label :name, "Taco Name" %>
     <%= f.text_field :name %>
-    </div>
     <%= f.label :price %>
     <%= f.number_field :price, min: 0, step: 0.01 %>
     <%= f.label :vegetarian %>
-    <%= f.select :vegetarian, [true, false] %>
+
+    <%= f.radio_button :vegetarian, true %>
+    <span>True</span>
+    <%= f.radio_button :vegetarian, false %>
+    <span>False</span>
 
     <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :display_name_and_city) %>
 

@@ -24,13 +24,13 @@ class TacosController < ApplicationController
     def create
         # name = params[:taco][:name]
         # vegetarian = params[:taco][:vegetarian]
-        new_taco = Taco.create(taco_params)
-
-        # cheat_price = params[:taco][:price] + 1
-        # new_taco.price = cheat_price
-        # new_taco.save
-
-        redirect_to taco_path(new_taco.id) # load "www.myapp.com/tacos/27"
+        @taco = Taco.new(taco_params)
+        if @taco.valid?
+            @taco.save
+            redirect_to taco_path(@taco.id) # load "www.myapp.com/tacos/27"
+        else
+            render :new
+        end
         # redirect_to "/tacos/#{new_taco.id}"
     end
 
@@ -39,7 +39,11 @@ class TacosController < ApplicationController
 
     def update
         @taco.update(taco_params)
-        redirect_to taco_path(@taco)
+        if @taco.valid?
+            redirect_to taco_path(@taco.id)
+        else
+            render :edit
+        end
     end
 
     def destroy
