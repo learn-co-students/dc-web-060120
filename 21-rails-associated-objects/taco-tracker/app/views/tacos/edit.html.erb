@@ -7,5 +7,12 @@
     <%= f.number_field :price, min: 0, step: 0.01 %>
     <%= f.label :vegetarian %>
     <%= f.select :vegetarian, [true, false] %>
+    <%= f.collection_select(:restaurant_id, Restaurant.all, :id, :display_name_and_city) %>
+
+
+    <div>Ingredients:</div>
+    <div>
+        <%= f.collection_check_boxes(:ingredient_ids, Ingredient.all, :id, :name) %>
+    </div>
     <%= f.submit %>
 <% end %>
