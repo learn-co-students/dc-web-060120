@@ -1,0 +1,12 @@
+<h1><%= @scientist.name %></h1>
+
+
+<div>
+    <% @scientist.planets.each do |planet| %>
+        <div><%= link_to planet.name, planet_path(planet.id) %></div>
+    <% end %>
+</div>
+
+
+<%= button_to "Delete this scientist", scientist_path(@scientist.id), method: :delete %>
+

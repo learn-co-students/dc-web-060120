@@ -15,22 +15,45 @@ It is the year 2100 and you run an interplanetary space travel agency.  You are 
 
 - Build the following features on your website:
 
-    - A user should be able to see a list of all scientists
+    <!-- - A user should be able to see a list of all scientists -->
 
-    - Clicking on a scientist should take you to a detail page about the scientist, including listing all the planets they have visited.
+<!--     - Clicking on a scientist should take you to a detail page about the scientist, including listing all the planets they have visited. -->
 
-    - A user should be able to create a new scientist.
+<!--     - A user should be able to create a new scientist.
         - Scientists must have a name and a field of study
         - Scientists' names should be unique
-        - If the user makes a mistake on the form, an error should display to the user
+        - If the user makes a mistake on the form, an error should display to the user -->
 
-    - A user should be able to edit the details of a scientist
+    <!-- - A user should be able to edit the details of a scientist -->
 
     - A user should be able to delete a scientist
 
     - A user should be able to create a new mission by choosing a scientist and a planet from dropdown menus.
         - A mission must have a unique name, a scientist, and a planet.
-        - After the mission is created, the user should be redirect to the scientist's detail page
+        - After the mission is created, the user should be redirected to the scientist's detail page
         - Check that this is working correctly by verifying the new planet appears on the scientist's detail page
         
  - Build an "about" page at "/about" which should list your name and the total number of scientists and planets in your database.
+
+
+Questions:
+
+- collection_select helper arguments
+- link_to delete (and other non-get requests)
+- strong params / private method
+- talk about request/response cycle and how links actually do what we need
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
