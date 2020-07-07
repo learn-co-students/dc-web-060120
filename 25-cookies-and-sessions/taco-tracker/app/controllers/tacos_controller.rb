@@ -2,6 +2,7 @@ class TacosController < ApplicationController
 
     before_action :find_taco, only: [:show, :edit, :update, :destroy]
 
+
     def index
         if params["vegetarian"] == "true"
             @tacos = Taco.is_vegetarian?(true)
@@ -13,6 +14,9 @@ class TacosController < ApplicationController
     end
 
     def show
+        # cookies["favorite_taco"] = "Bacon Lovers' Supreme"
+        cookies["last_visited"] = @taco.name
+        session["secret_favorite"] = "Broccoli and cheese taco"
         render :show
     end
 

@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   # ^.             ^.               ^                   ^
   # HTTP Verb.    PATH            controller#method   helper_prefix
   
+  get "/login", to: "sessions#login"
+  post "/login", to: "sessions#process_login"
+  get "/logout", to: "sessions#logout"
   # get "/tacos", to: "tacos#index"
   # get "/tacos/:id", to: "tacos#show", as: "taco"
   resources :tacos

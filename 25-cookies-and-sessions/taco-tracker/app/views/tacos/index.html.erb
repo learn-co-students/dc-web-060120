@@ -1,20 +1,17 @@
 <h1>Index Page</h1>
 
+<% if flash[:message] %>
+    <div class="error"><%= flash[:message] %></div>
+<% end %>
+
+<div>
+    <div>My favorite taco is <%= cookies["favorite_taco"] %></div>
+    <div>The last taco I visited is <%= cookies["last_visited"] %></div>
+    <div>My secret favorite taco is <%= session["secret_favorite"] %></div>
+</div>
 <!-- <a href="/about">About Page</a> -->
 <%= link_to("About Page", about_path) %>
 
-<!-- <form action="/tacos" method="GET">
-
-    <input type="radio" name="vegetarian" value="true">
-    <label>Only vegetarian</label>
-    <input type="radio" name="vegetarian" value="false">
-    <label>Only meat</label>
-    <input type="radio" name="vegetarian" value="all">
-    <label>All tacos</label>
-
-    <input type="submit" value="Filter">
-
-</form> -->
 
 <%= form_tag tacos_path, method: "GET" do %>
     <%= radio_button_tag 'vegetarian', 'true' %>
@@ -25,6 +22,7 @@
     <%= label_tag "All Tacos" %>
     <%= submit_tag "Filter" %>
 <% end %>
+
 
 <ul>
     <% @tacos.each do |taco| %>
