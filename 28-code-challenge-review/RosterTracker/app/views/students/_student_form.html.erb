@@ -1,0 +1,27 @@
+<% if @student.errors %>
+  <ul>
+    <% @student.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+
+<%= form_for @student do |form| %>
+  <%= form.label :name, "Student Name" %>
+  <%= form.text_field :name %>
+  <%= form.label :grade %>
+  <%= form.number_field :grade %>
+
+  <%= form.collection_check_boxes(:course_ids, Course.all, :id, :display_name) %>
+  <%= form.submit %>
+<% end %>
+
+
+<!-- 
+collection_check_boxes(object, method, collection, value_method, text_method,
+
+course.title
+course.level
+course.my_custom_method
+{id: 7, name: "Zach Morris", method: value_method} -->

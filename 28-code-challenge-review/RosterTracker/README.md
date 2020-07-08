@@ -20,6 +20,7 @@ Student -< Enrollment >- Course
   |                         |
   ---------------------------
   
+
 Student
 :name
 :grade(int)
@@ -29,3 +30,5 @@ Course
 :level(int)
 
 Enrollment
+:student_id
+:course_id
