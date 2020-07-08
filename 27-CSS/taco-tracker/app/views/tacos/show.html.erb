@@ -1,0 +1,27 @@
+<h1>Detail Page</h1>
+
+<div>Name: <%= @taco.display_name %></div>
+
+<% if @taco.restaurant %>
+    <div>Served at: <%= link_to @taco.restaurant.name, restaurant_path(@taco.restaurant.id) %></div>
+<% end %>
+
+
+<div>Price: <%= number_to_currency(@taco.price) %></div>
+<div>Vegetarian:  <%= @taco.vegetarian %></div>
+
+<% if @taco.ingredients %>
+    <% @taco.ingredients.each do |ingredient| %>
+        <div><%= ingredient.name %></div>
+    <% end %>
+<% end %>
+
+
+<div>
+<%= link_to "All Tacos", tacos_path %>
+</div>
+
+<div>
+<%= link_to "Edit this taco", edit_taco_path(@taco.id) %>
+<%= link_to "Delete this taco", taco_path(@taco.id), :method => :delete, data: {confirm: "Are you sure?"} %>
+</div>
