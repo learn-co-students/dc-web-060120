@@ -1,0 +1,14 @@
+<h1 class="header">Login</h1>
+
+<% if flash[:error] %>
+    <div class="error"><%= flash[:error] %></div>
+<% end %>
+
+<%= form_tag login_path do %>
+    <%= label :username, "Username" %>
+    <%= text_field_tag :username %>
+    <%= submit_tag "Login" %>
+
+<% end %>
+
+

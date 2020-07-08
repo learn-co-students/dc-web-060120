@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taco Tracker</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.0/css/bulma.min.css"> 
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+  </head>
+
+  <body>
+    <% unless controller_name == "sessions" && action_name == "login" %>
+
+        <nav class="navbar is-danger">
+          <div class="navbar-menu">
+            <%= link_to "Home", tacos_path, class: "navbar-item" %>
+            <%= link_to "About", about_path, class: "navbar-item" %>
+            
+      <% if session[:user_id] %>
+              <%= link_to "Create a Taco", new_taco_path, class: "navbar-item" %>
+              <div class="navbar-end">
+              <%= link_to "Log out", logout_path, class: "navbar-item" %>
+              </div>
+          <% else %>
+
+              <div class="navbar-end">
+              <%= link_to "Log In", login_path, class: "navbar-item"  %>
+              </div>
+          <% end %>
+          </div>
+    <% end %>
+        </nav>
+        <section id="bg">
+          <div class="container" id="main_container">
+          <%= yield %>
+          </div>
+        </section>
+
+    <% unless params[:controller] == "restaurants" && params[:action] == "index" %>
+      <footer>
+        <div>This app was made by the students of 2 Commit 2 Git</div>
+      </footer>
+    <% end %>
+  </body>
+</html>
+
+
+
+<!-- {"controller"=>"restaurants", "action"=>"index"} -->

@@ -1,0 +1,11 @@
+<h1>Welcome to our taco-tracker!</h1>
+
+
+<!-- <a href="/about">About this page</a> -->
+<!-- <a href="/hello/petey">Hello Petey</a>
+<a href="/hello/ella">Hello Ella</a> -->
+<nav class="navbar" role="navigation" aria-label="main-navigation">
+    <%= link_to "About This Page", about_path %>
+    <%= link_to "Hello Petey", hello_path("Petey") %>
+    <%= link_to "Hello Ella", hello_path("Ella") %>
+</nav>

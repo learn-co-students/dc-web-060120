@@ -1,0 +1,37 @@
+<h1 class="title is-1">All Tacos</h1>
+
+<% if flash[:message] %>
+    <div class="error"><%= flash[:message] %></div>
+<% end %>
+<%= form_tag tacos_path, method: "GET" do %>
+    <%= radio_button_tag 'vegetarian', 'true' %>
+    <%= label_tag "Only Vegetarian"%>
+    <%= radio_button_tag 'vegetarian', 'false' %>
+    <%= label_tag "Only Meat"%>
+    <%= radio_button_tag 'vegetarian', 'all' %>
+    <%= label_tag "All Tacos" %>
+    <%= submit_tag "Filter", class: 'button is-primary' %>
+<% end %>
+
+<%
+=begin%>
+ <div>
+    <div>My favorite taco is <%= cookies["favorite_taco"] %></div>
+    <div>The last taco I visited is <%= cookies["last_visited"] %></div>
+    <div>My secret favorite taco is <%= session["secret_favorite"] %></div>
+</div> 
+<%
+=end%>
+
+
+
+
+
+
+<ul>
+    <% @tacos.each do |taco| %>
+        <li><%= link_to "#{taco.display_name}", taco_path(taco.id), class: taco.veg_color %></li>
+    <% end %>
+</ul>
+
+
