@@ -1,7 +1,7 @@
 class TacosController < ApplicationController
 
     before_action :find_taco, only: [:show, :edit, :update, :destroy]
-
+    before_action :authorized, except: [:index, :show]
 
     def index
         if params["vegetarian"] == "true"
@@ -22,7 +22,6 @@ class TacosController < ApplicationController
 
     def new
         @taco = Taco.new
-        # render :new
     end
 
     def create

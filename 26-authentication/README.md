@@ -1,4 +1,8 @@
 * Objectives
-    - Explain the difference between sessions and cookies
-    - Use cookies/sessions to store persistent data
-    - Retrieve and use data stored in cookies/sessions
+    - Use the bcrypt gem
+
+
+To add a password to a model:
+- Uncomment and bundle the bcrypt gem
+- add `has_secure_password` to model
+- add password_digest:string to User model through a migration

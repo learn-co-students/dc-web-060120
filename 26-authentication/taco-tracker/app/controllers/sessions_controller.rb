@@ -9,16 +9,16 @@ class SessionsController < ApplicationController
         username = params[:username]
         # see if that username matches a user in our database
         user = User.find_by(username: username)
-        if user 
+        if user && user.authenticate(params[:password])
             # log in that user
             session[:user_id] = user.id
             flash[:message] = "User logged in"
             redirect_to tacos_path
         else 
-            flash.now[:error] = "No user found with that name"
+            flash[:error] = "No user found with that name and password"
             # FLASH: if you redirect
             # FLASH.NOW if you render
-            render :login
+            redirect_to :login
         end
     end
 
