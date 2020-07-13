@@ -78,49 +78,54 @@
 - `document.getElementById`
   - get the `div` with the id `movie-container`
 
-  - return the first element from the document that matches the id string
+  - searches the document and will return the first (should be only) thing with the matching id
 
 ```javascript
 let container = document.getElementById("movie-container")
 ```
 
-- `node.getElementsByTagName`
-  - get the Matrix `li` element
+- `element.getElementsByTagName`
+  - get all the `li` element
 
-  - returns all the child elements of the node that are of that tag type
+  - returns a collection of the items that match the tag name provided
 
 ```javascript
-let movies = document.getElementsByTagName("li")[1]
+let list = document.getElementById("movie-list")
+list.getElementsByTagName("li")
 ```
 
+  - get the Matrix `li` 
 
-- `node.getElementsByClassName`
+  ```javascript
+  let matrix = document.getElementsByTagName("li")[1]
+  ```
+
+
+- `element.getElementsByClassName`
   - get all the `li` elements with the class `movie`
 
-  - returns all the child elements of the node that have that class
+  - returns a collection of elements that match the class name provided
 
 ```javascript
-let movies = document.getElementsByClassName("movie")
+document.getElementsByClassName('movie')
 ```
 
-- `node.querySelector`
-  - get the up-vote `button` from within the jaws `li`
+- `element.querySelector`
+  - get the first up-vote `button`
 
-  - returns the first node that matches the css selector criteria
+  - return the first element that match the query selector
 
 ```javascript
-let list = document.querySelector("ul")
-let button = list.querySelector(".up-vote")
+document.querySelector('.up-vote')
 ```
   
-- `node.querySelectorAll`
+- `element.querySelectorAll`
   - get the all the `up-vote` elements
   
-  - returns all the nodes that match the css selector criteria
-
+  - returns a node list of items that match the query selector
 
 ```javascript
-let buttons = document.querySelectorAll("up-vote")
+document.querySelectorAll(".up-vote")
 ```
 
   - We can also combine selectors for more specificity:
@@ -135,11 +140,11 @@ let buttons = document.querySelectorAll("up-vote")
 
 - "https://i.ytimg.com/vi/aaqzPMOd_1g/maxresdefault.jpg"
 
-1. get the image from the DOM and save it in a variable
-2. manipulate the image to display a different picture -> change the src property
+1. get the image from the DOM somehow
+2. change the picture being displayed by the img tag
 
 ```javascript
-let image = document.getElementById('welcome-image')
+let image = document.querySelector("#welcome-image")
 image.src = "https://i.ytimg.com/vi/aaqzPMOd_1g/maxresdefault.jpg"
 ```
 ---
@@ -147,12 +152,10 @@ image.src = "https://i.ytimg.com/vi/aaqzPMOd_1g/maxresdefault.jpg"
 #### DELETE:
 - remove the Jaws movie
 
-1. get the jaws movie li from the DOM
-2. remove it from the DOM (Somehow...)
+
 
 ```javascript
-let jaws = document.querySelector('li')
-jaws.remove()
+
 ```
 
 ---
