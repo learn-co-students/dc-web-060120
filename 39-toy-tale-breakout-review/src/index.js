@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toyForm = document.getElementsByClassName('add-toy-form')[0]
 
   toyForm.addEventListener('submit', (event)=> {
-    // pass in the even to stop the default action
+    // pass in the event to stop the default action
     event.preventDefault()
 
     // grab the values from the input fields on the form
