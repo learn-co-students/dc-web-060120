@@ -28,10 +28,11 @@ function renderTrainer( trainer ) {
     p.textContent = trainer.name
     div.appendChild(p)
 
-
     let addPokemonButton = document.createElement('button')
     addPokemonButton.dataset.trainerId = trainer.id
     addPokemonButton.textContent = 'Add Pokemon'
+    // since I already have access to these variables in this function 
+    // I can pass them into the event listener
     addPokemonButton.addEventListener('click', (e)=> addPokemonToTeam( e, trainer, pokemonList ) )
     div.appendChild(addPokemonButton)
 
@@ -39,7 +40,6 @@ function renderTrainer( trainer ) {
     div.appendChild(pokemonList)
 
     trainer.pokemons.forEach( pokemon => renderPokemon( pokemon, pokemonList ) )
-
 }
 
 function renderPokemon( pokemon, pokemonList ) {
@@ -56,6 +56,8 @@ function renderPokemon( pokemon, pokemonList ) {
 }
 
 function addPokemonToTeam( e, trainer, pokemonList ) {
+    // I can write an object for the request to clean
+    // up my fetch request a bit
     let postRequest = {
         method: 'post',
         headers: {
