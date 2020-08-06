@@ -40,7 +40,7 @@ const SearchBar = ( props ) => {
 
       <label>
         <strong>Filter:</strong>
-        <select onChange={ props.changeFilterBy }>
+        <select onChange={ (e) => props.changeFilterBy( e.target.value ) }>
           <option value="None">None</option>
           <option value="Tech">Tech</option>
           <option value="Sportswear">Sportswear</option>

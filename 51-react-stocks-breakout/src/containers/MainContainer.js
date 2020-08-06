@@ -17,7 +17,7 @@ class MainContainer extends Component {
   componentDidMount () {
     fetch( stocksUrl )
     .then( res => res.json() )
-    .then( stocks => this.setState({ stocks }) )
+    .then( stocksData => this.setState({ stocks: stocksData }) )
   }
 
   addStockToPortfolio = ( id ) => {
@@ -28,7 +28,7 @@ class MainContainer extends Component {
       this.setState({
         myPortfolio: portfolio
       })
-  }
+    }
   }
 
   removeStockFromPortfolio = ( id ) => {
@@ -48,6 +48,7 @@ class MainContainer extends Component {
   filterStocks = ( ) => {
     let stocks = [...this.state.stocks]
     let filterBy = this.state.filterBy
+
     if ( filterBy !== 'None' )
       stocks = stocks.filter( stock => stock.type === filterBy )
 
@@ -96,7 +97,6 @@ class MainContainer extends Component {
       </div>
     );
   }
-
 }
 
 export default MainContainer;
